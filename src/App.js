@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Data from "./pages/Data/Data";
+import { Box } from "@mui/material";
 
 function App() {
   // const router = createBrowserRouter(
@@ -23,8 +24,14 @@ function App() {
     <div className="App">
       {/* <h1>Hello world</h1> */}
       {/* <RouterProvider router={router} /> */}
-      <Home />
-      <Data />
+      <Box
+        // sx={{
+        //   height: "100vh",
+        // }}
+      >
+        <Home />
+        <Data />
+      </Box>
     </div>
   );
 }
@@ -35,7 +42,7 @@ function App() {
 //       <div>
 //         <Link to="/">Home</Link>
 //         <Link to="/data">Data</Link>
-        
+
 //       </div>
 //       <div>
 //         <Outlet />

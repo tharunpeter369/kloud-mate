@@ -8,9 +8,9 @@ function Home() {
     <>
     {/* <div>Home</div> */}
     {/* <Button variant="contained" color="secondary">Contained</Button> */}
-    <div>
+   
        <Navbar/>
-    </div>
+   
     </>
   )
 }
