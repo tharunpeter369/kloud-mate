@@ -111,7 +111,7 @@ function Navbar() {
                             <Grid item xs={6}>
                                 {/* Content for the LeftStack (25% width) */}
                                 <Stack direction={"row"} justifyContent="center">
-                                    <span style={{ color: 'rgb(0, 161, 253)' }}>Logs(22)</span>
+                                    <span style={{ color: 'rgb(0, 161, 253)' }}>Logs (22)</span>
                                 </Stack>
                             </Grid>
                             <Grid item xs={6}>
