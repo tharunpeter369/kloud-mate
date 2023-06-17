@@ -16,7 +16,7 @@ function RightSection() {
     return (
         <div>
             {/* Content for the right component */}
-            <Box sx={{ paddingY: '15px' }}>
+            <Box sx={{ paddingY: '15px' ,paddingX: '5px' }}>
                 <Typography variant="h6" sx={{ fontWeight: 400 }}>
                     Trace Overview
                 </Typography>

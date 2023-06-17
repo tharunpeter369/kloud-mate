@@ -3,7 +3,9 @@ import { Box, Divider, Grid, Stack, styled } from '@mui/material';
 import React from 'react'
 import { List, ListItem, ListItemText } from '@mui/material';
 import RightSection from '../../components/MiddleSection/RightSection';
-
+import LeftSection from '../../components/MiddleSection/LeftSection';
+import { Resizable } from 're-resizable';
+import ResizePanel from "react-resize-panel";
 
 const RedSquareBullet = styled('span')(({ color }) => ({
   display: 'inline-block',
@@ -12,19 +14,33 @@ const RedSquareBullet = styled('span')(({ color }) => ({
   backgroundColor: color,
   marginRight: '8px',
 }));
-
+const style = {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  border: "solid 1px #ddd",
+  background: "#f0f0f0"
+};
 function Data() {
   return (
-
-    <Box sx={{ display: 'flex' }}>
+    <Box >
       {/* <Box sx={{ flexGrow: 2, flexShrink: 1, bgcolor: 'lightblue' }}> */}
-      <Box sx={{ flexGrow: 2, flexShrink: 1 }}>
-        {/* Content for the left component */}
-        <h1>hello worlddddd</h1>
+      <Box id="hi" sx={{ display: 'flex', height: 'auto' }}>
+
+        {/* <Box sx={{ flex: 1 }}>
+       
+          <LeftSection />
+        </Box>
+        <Box sx={{ flex: 1 }}>
+          <RightSection />
+        </Box> */}
       </Box>
-      <Box sx={{ flexGrow: 2, flexShrink: 1 }}>
-        <RightSection/>
+      <Box id="hello" sx={{ height: '30vh', backgroundColor: "red" }}>
+      <ResizePanel direction="e">
+    <div className="panel sidebar">left panel</div>
+</ResizePanel>
       </Box>
+
     </Box>
   )
 }
@@ -68,40 +84,3 @@ export default Data
     //     <h1>hello world</h1>
     //   </Box>
     // </Box>
-
-
-
-
-
-
-            {/* Content for the right component */}
-        {/* <Box sx={{ paddingY: '40px' }}>
-          <h2>Trace Overview</h2>
-          <h4>Jun 6th 2023, 20:15:59</h4>
-        </Box>
-        <Divider />
-        <Box sx={{ paddingY: '40px' }}>
-          <Stack direction={"row"} sx={{ display: "flex", justifyContent: 'space-between' }}  >
-            <h4>3 SERVICES USED</h4>
-            <h4>Total:30 spans</h4>
-          </Stack>
-          <List>
-            <ListItem sx={{ py: 0, px: 0 }}>
-              <RedSquareBullet color="rgb(204, 118, 0)" />
-              <ListItemText primary="authentication-service" />
-            </ListItem>
-            <ListItem sx={{ py: 0, px: 0 }}>
-              <RedSquareBullet color="rgb(255, 149, 31)" />
-              <ListItemText primary="orders-service" />
-            </ListItem>
-            <ListItem sx={{ py: 0, px: 0 }}>
-              <RedSquareBullet color="rgb(206, 146, 216)" />
-              <ListItemText primary="stock-service" />
-            </ListItem>
-          </List>
-        </Box>
-        <Divider />
-
-        <Box>
-          Perfomance
-        </Box> */}
