@@ -6,11 +6,7 @@ import { Button } from '@mui/material'
 function Home() {
   return (
     <>
-    {/* <div>Home</div> */}
-    {/* <Button variant="contained" color="secondary">Contained</Button> */}
-   
-       <Navbar/>
-   
+      <Navbar />
     </>
   )
 }

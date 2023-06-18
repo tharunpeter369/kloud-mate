@@ -7,6 +7,7 @@ import LeftSection from '../../components/MiddleSection/LeftSection';
 import { Resizable } from 're-resizable';
 import { ResizeHandle } from "@mui/material";
 import { Rnd } from 'react-rnd';
+import Tree from '../../components/Tree/Tree';
 
 const RedSquareBullet = styled('span')(({ color }) => ({
   display: 'inline-block',
@@ -28,9 +29,7 @@ function Data() {
     <Box >
       {/* <Box sx={{ flexGrow: 2, flexShrink: 1, bgcolor: 'lightblue' }}> */}
       <Box id="hi" sx={{ display: 'flex', height: "65vh" }}>
-
         <Box sx={{ flex: 1 }}>
-
           <LeftSection />
         </Box>
         <Box sx={{ flex: 1 }}>
@@ -38,47 +37,8 @@ function Data() {
         </Box>
       </Box>
       <Box id="hello" sx={{ height: "25vh" }} >
-        <Rnd
-          style={style}
-          disableDragging
-          minHeight={200}
-          default={{
-            x: 0,
-            y: 0,
-            width: 100,
-          }}
-          enableResizing={
-            {
-              bottom: false,
-              bottomLeft: false,
-              bottomRight: false,
-              left: false,
-              right: false,
-              top: true,
-              topLeft: false,
-              topRight: false,
-            }
-          }
-
-        >
-          <Box>
-            <h1>11111111111111111</h1>
-            <h1>hbhhjhjh</h1>
-            <h1>hbhhjhjh</h1>
-            <h1>hbhhjhjh</h1>
-            <h1>hbhhjhjh</h1>
-            <h1>hbhhjhjh</h1>
-            <h1>hbhhjhjh</h1>
-            <h1>hbhhjhjh</h1>
-            <h1>hbhhjhjh</h1>
-            <h1>hbhhjhjh</h1>
-            <h1>hbhhjhjh</h1>
-            <h1>dfdfdfdfdfdfdfdfdf</h1>
-
-          </Box>
-        </Rnd>
+        <Tree/>
       </Box>
-
     </Box>
   )
 }
