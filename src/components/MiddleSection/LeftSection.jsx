@@ -48,21 +48,25 @@ function LeftSection() {
   });
   return (
     // <Box sx={{ backgroundColor: 'green' }}>
-    <ReactFlow
-      nodes={nodes}
-      edges={edgesWithUpdatedTypes}
-      // onNodesChange={onNodesChange}
-      // onEdgesChange={onEdgesChange}
-      // onConnect={onConnect}
-      // onInit={onInit}
-      // fitView
-      attributionPosition="top-right"
-      nodeTypes={nodeTypes}
-    >
-      {/* <MiniMap style={minimapStyle} zoomable pannable /> */}
-      {/* <Controls /> */}
-      <Background color="#aaa" gap={16} />
-    </ReactFlow>
+    // <ReactFlow
+    //   nodes={nodes}
+    //   edges={edgesWithUpdatedTypes}
+    //   // onConnect={onConnect}
+    //   // onInit={onInit}
+    //   // fitView
+    //   attributionPosition="top-right"
+    //   nodeTypes={nodeTypes}
+    // >
+    //   {/* <MiniMap style={minimapStyle} zoomable pannable /> */}
+    //   {/* <Controls /> */}
+    //   <Background color="#aaa" gap={16} />
+    // </ReactFlow>
+
+    <ReactFlow 
+    nodes={nodes} 
+    edges={edges} 
+    // fitView 
+    />
     // </Box>
   );
 }

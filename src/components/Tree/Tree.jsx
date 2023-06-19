@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Rnd } from "react-rnd";
 import TreeView from "@mui/lab/TreeView";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -9,6 +9,7 @@ import { styled } from "@mui/material/styles";
 import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
+import { data, calculatedTreeData } from "../../jSONDATA/jsonData";
 
 const style = {
   display: "flex",
@@ -121,6 +122,7 @@ const treeData = [
     ],
   },
 ];
+// console.log(calculatedTreeData, "🥰");
 
 const BorderLinearProgress = styled(LinearProgress)(
   ({ theme, customcolor }) => ({
@@ -139,14 +141,35 @@ const BorderLinearProgress = styled(LinearProgress)(
 
 const adjustedValue = ((40 - 40) / 40) * 100;
 const renderTree = (nodes, index) => {
-  const { from, to, ...data } = nodes;
-  const width = Math.floor(((to - from) / 1848) * 100);
-  const position = (from / 1848) * 100;
+  // const { from, to, ...data } = nodes;
+  const duration = nodes.duration;
+  const startMs = new Date(nodes.startTime).getTime();
+  console.log("😋");
+  console.log("🚀 ~ file: Tree.jsx:147 ~ renderTree ~ startMs:", startMs);
+  const endMs = startMs + duration;
+  console.log("🚀 ~ file: Tree.jsx:149 ~ renderTree ~ endMs:", endMs);
+
+  // const startPercentage = (startMs / totalMs) * 100;
+  // const durationPercentage = (duration / totalMs) * 100;
+
+  const width = Math.floor(((endMs - startMs) / 1848) * 100);
+  const position = (startMs / 1848) * 100;
+
+  // let from = 0;
+  // let to = 1848;
+  // let range = 1848;
+  // const width = Math.floor(((to - from) / 1848) * 100);
+  // const position = (from / 1848) * 100;
+
+  // let from = (startMs / totalMs) * 100;
+  // let to = 1848;
+  // let range = 1848;
+
   return (
     <Box>
       <TreeItem
-        key={nodes.id}
-        nodeId={nodes.id}
+        key={nodes.spanId}
+        nodeId={nodes.spanId}
         classes={{
           content: "custom-treeitem-content",
         }}
@@ -157,7 +180,7 @@ const renderTree = (nodes, index) => {
         }}
         label={
           <Box display="flex" alignItems="center" backgroundColor="">
-            <Typography sx={{ width: 230 }}>{nodes.label}</Typography>
+            <Typography sx={{ width: 230 }}>{nodes.operationName}</Typography>
             <Box
               position="fixed"
               left="3.5vw"
@@ -188,6 +211,8 @@ const renderTree = (nodes, index) => {
 };
 
 function Tree() {
+  const [treeState, setTreestate] = useState(calculatedTreeData);
+
   return (
     <Rnd
       style={style}
@@ -234,7 +259,7 @@ function Tree() {
           defaultExpandIcon={<ChevronRightIcon />}
           sx={{ flexGrow: 1, maxWidth: 400, overflowY: "auto" }}
         >
-          {treeData.map((node, index) => renderTree(node, index))}
+          {treeState.map((node, index) => renderTree(node, index))}
         </TreeView>
       </Box>
     </Rnd>
@@ -242,3 +267,49 @@ function Tree() {
 }
 
 export default Tree;
+
+
+
+
+
+
+
+      {/* <TreeItem
+        key={nodes.id}
+        nodeId={nodes.id}
+        classes={{
+          content: "custom-treeitem-content",
+        }}
+        sx={{
+          "& .custom-treeitem-content": {
+            width: "auto",
+          },
+        }}
+        label={
+          <Box display="flex" alignItems="center" backgroundColor="">
+            <Typography sx={{ width: 230 }}>{nodes.label}</Typography>
+            <Box
+              position="fixed"
+              left="3.5vw"
+              width="76vw"
+              height={{}}
+              marginLeft={31}
+              backgroundColor=""
+            >
+              <Box>
+                <Box padding={1} marginLeft={position}>
+                  <BorderLinearProgress
+                    variant="determinate"
+                    value={width}
+                    customcolor="rgb(255, 149, 31)"
+                  />
+                </Box>
+              </Box>
+            </Box>
+          </Box>
+        }
+      >
+        {Array.isArray(nodes.children)
+          ? nodes.children.map((node) => renderTree(node))
+          : null}
+      </TreeItem> */}
