@@ -268,13 +268,8 @@ function Tree() {
 
 export default Tree;
 
-
-
-
-
-
-
-      {/* <TreeItem
+{
+  /* <TreeItem
         key={nodes.id}
         nodeId={nodes.id}
         classes={{
@@ -312,4 +307,5 @@ export default Tree;
         {Array.isArray(nodes.children)
           ? nodes.children.map((node) => renderTree(node))
           : null}
-      </TreeItem> */}
+      </TreeItem> */
+}
