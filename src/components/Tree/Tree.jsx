@@ -13,8 +13,6 @@ import { data, calculatedTreeData } from "../../jSONDATA/jsonData";
 
 const style = {
   display: "flex",
-  // alignItems: "center",
-  // justifyContent: "center",
   border: "solid 1px #ddd",
   background: "#f0f0f0",
 };
@@ -122,7 +120,6 @@ const treeData = [
     ],
   },
 ];
-// console.log(calculatedTreeData, "🥰");
 
 const BorderLinearProgress = styled(LinearProgress)(
   ({ theme, customcolor }) => ({
@@ -139,31 +136,20 @@ const BorderLinearProgress = styled(LinearProgress)(
   })
 );
 
-const adjustedValue = ((40 - 40) / 40) * 100;
+// need to work on the logic to find margin left of th each bar and find the actual width of the bar
+
+let comparingDate = new Date(calculatedTreeData[0]?.startTime);
 const renderTree = (nodes, index) => {
   // const { from, to, ...data } = nodes;
   const duration = nodes.duration;
-  const startMs = new Date(nodes.startTime).getTime();
-  console.log("😋");
-  console.log("🚀 ~ file: Tree.jsx:147 ~ renderTree ~ startMs:", startMs);
-  const endMs = startMs + duration;
-  console.log("🚀 ~ file: Tree.jsx:149 ~ renderTree ~ endMs:", endMs);
+  // const date1 = new Date("2023-06-06T14:16:00.750000128Z");
+  const date2 = new Date(nodes.startTime);
+  const timeDiffMs = Math.abs(date2 - comparingDate);
+  const formattedTimeDiffMs = Math.min(timeDiffMs, 9999);
+  let res = 1848 - formattedTimeDiffMs;
+  let resVal = (res / 1848) * 100;
+  const position = (formattedTimeDiffMs / 1848) * 100;
 
-  // const startPercentage = (startMs / totalMs) * 100;
-  // const durationPercentage = (duration / totalMs) * 100;
-
-  const width = Math.floor(((endMs - startMs) / 1848) * 100);
-  const position = (startMs / 1848) * 100;
-
-  // let from = 0;
-  // let to = 1848;
-  // let range = 1848;
-  // const width = Math.floor(((to - from) / 1848) * 100);
-  // const position = (from / 1848) * 100;
-
-  // let from = (startMs / totalMs) * 100;
-  // let to = 1848;
-  // let range = 1848;
 
   return (
     <Box>
@@ -193,7 +179,7 @@ const renderTree = (nodes, index) => {
                 <Box padding={1} marginLeft={position}>
                   <BorderLinearProgress
                     variant="determinate"
-                    value={width}
+                    value={resVal}
                     customcolor="rgb(255, 149, 31)"
                   />
                 </Box>
@@ -251,8 +237,6 @@ function Tree() {
             <Box borderLeft="1px solid lightgrey" height="100%" />
           </Box>
         </Box>
-        {/* <Box position="fixed" left="3.5vw" width="76vw" height={{}} marginLeft={31} backgroundColor="red" > */}
-        {/* </Box> */}
         <TreeView
           aria-label="file system navigator"
           defaultCollapseIcon={<ExpandMoreIcon />}
@@ -267,45 +251,3 @@ function Tree() {
 }
 
 export default Tree;
-
-{
-  /* <TreeItem
-        key={nodes.id}
-        nodeId={nodes.id}
-        classes={{
-          content: "custom-treeitem-content",
-        }}
-        sx={{
-          "& .custom-treeitem-content": {
-            width: "auto",
-          },
-        }}
-        label={
-          <Box display="flex" alignItems="center" backgroundColor="">
-            <Typography sx={{ width: 230 }}>{nodes.label}</Typography>
-            <Box
-              position="fixed"
-              left="3.5vw"
-              width="76vw"
-              height={{}}
-              marginLeft={31}
-              backgroundColor=""
-            >
-              <Box>
-                <Box padding={1} marginLeft={position}>
-                  <BorderLinearProgress
-                    variant="determinate"
-                    value={width}
-                    customcolor="rgb(255, 149, 31)"
-                  />
-                </Box>
-              </Box>
-            </Box>
-          </Box>
-        }
-      >
-        {Array.isArray(nodes.children)
-          ? nodes.children.map((node) => renderTree(node))
-          : null}
-      </TreeItem> */
-}

@@ -6,68 +6,50 @@ import ReactFlow, {
   Background,
   useNodesState,
   useEdgesState,
+  ControlButton,
 } from "reactflow";
+import ZoomNode from "./ZoomNode";
+// import {
+//   nodes as initialNodes,
+//   edges as initialEdges,
+// } from "../../Data/initial-elements";
 
-import {
-  nodes as initialNodes,
-  edges as initialEdges,
-} from "../../Data/initial-elements";
+import {initialNodes , initialEdges} from "../../Data/initial-elements";
+
+
+
+
 import CustomNode from "./CustomNode";
 
 import "reactflow/dist/style.css";
 import ".././overview.css";
+import "./index.css";
 
+const snapGrid = [20, 20];
 const nodeTypes = {
-  custom: CustomNode,
-};
-
-const minimapStyle = {
-  height: 120,
+  zoom: ZoomNode,
 };
 
 const onInit = (reactFlowInstance) =>
   console.log("flow loaded:", reactFlowInstance);
-
+const defaultViewport = { x: 0, y: 45, zoom: 1 };
+console.log("🚀 ~ file: LeftSection.jsx:18 ~ initialEdges:", initialEdges)
+console.log("🚀 ~ file: LeftSection.jsx:18 ~ initialNodes:", initialNodes)
 function LeftSection() {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-  const onConnect = useCallback(
-    (params) => setEdges((eds) => addEdge(params, eds)),
-    []
-  );
 
-  // we are using a bit of a shortcut here to adjust the edge type
-  // this could also be done with a custom edge for example
-  const edgesWithUpdatedTypes = edges.map((edge) => {
-    //   if (edge.sourceHandle) {
-    //     const edgeType = nodes.find((node) => node.type === 'custom').data.selects[edge.sourceHandle];
-    //     edge.type = edgeType;
-    //   }
-
-    return edge;
-  });
   return (
-    // <Box sx={{ backgroundColor: 'green' }}>
-    // <ReactFlow
-    //   nodes={nodes}
-    //   edges={edgesWithUpdatedTypes}
-    //   // onConnect={onConnect}
-    //   // onInit={onInit}
-    //   // fitView
-    //   attributionPosition="top-right"
-    //   nodeTypes={nodeTypes}
-    // >
-    //   {/* <MiniMap style={minimapStyle} zoomable pannable /> */}
-    //   {/* <Controls /> */}
-    //   <Background color="#aaa" gap={16} />
-    // </ReactFlow>
-
-    <ReactFlow 
-    nodes={nodes} 
-    edges={edges} 
-    // fitView 
-    />
-    // </Box>
+    <ReactFlow
+      nodes={nodes}
+      edges={edges}
+      snapToGrid={true}
+      nodeTypes={nodeTypes}
+      snapGrid={snapGrid}
+      defaultViewport={defaultViewport}
+    >
+      <Controls />
+    </ReactFlow>
   );
 }
 
