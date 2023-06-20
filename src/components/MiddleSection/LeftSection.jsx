@@ -14,10 +14,7 @@ import ZoomNode from "./ZoomNode";
 //   edges as initialEdges,
 // } from "../../Data/initial-elements";
 
-import {initialNodes , initialEdges} from "../../Data/initial-elements";
-
-
-
+import { initialNodes, initialEdges } from "../../Data/initial-elements";
 
 import CustomNode from "./CustomNode";
 
@@ -33,8 +30,7 @@ const nodeTypes = {
 const onInit = (reactFlowInstance) =>
   console.log("flow loaded:", reactFlowInstance);
 const defaultViewport = { x: 0, y: 45, zoom: 1 };
-console.log("🚀 ~ file: LeftSection.jsx:18 ~ initialEdges:", initialEdges)
-console.log("🚀 ~ file: LeftSection.jsx:18 ~ initialNodes:", initialNodes)
+
 function LeftSection() {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
