@@ -106,46 +106,46 @@ import { Memory, Storage } from '@mui/icons-material';
 //     position: { x: 450, y: 300 },
 //     style: { border: "1px solid rgb(206, 146, 216)" }
 //   },
-//   // {
-//   //   id: '6',
-//   //   type: 'output',
-//   //   data: {
-//   //     label: (
-//   //       <Stack direction={'row'}>
-//   //         <SouthEastIcon />
-//   //         <Typography>
-//   //           <Typography display={'flex'} fontSize={10}>
-//   //             HTTP
-//   //           </Typography>
-//   //           <Typography display={'flex'} fontSize={10}>
-//   //             aspecto.us.auth0...
-//   //           </Typography>
-//   //         </Typography>
-//   //       </Stack>)
-//   //   },
-//   //   position: { x: 50, y: 400 },
-//   //   style: { border: "1px solid rgb(206, 146, 216)" }
-//   // },
-//   // {
-//   //   id: '7',
-//   //   type: 'output',
-//   //   data: {
-//   //     label: (
-//   //       <Stack direction={'row'}>
-//   //         <SouthEastIcon />
-//   //         <Typography>
-//   //           <Typography display={'flex'} fontSize={10}>
-//   //             mongo-db
-//   //           </Typography>
-//   //           <Typography display={'flex'} fontSize={10}>
-//   //             stock-db
-//   //           </Typography>
-//   //         </Typography>
-//   //       </Stack>)
-//   //   },
-//   //   position: { x: 250, y: 400 },
-//   //   style: { border: "1px solid rgb(206, 146, 216)" }
-//   // },
+// {
+//   id: '6',
+//   type: 'output',
+//   data: {
+//     label: (
+//       <Stack direction={'row'}>
+//         <SouthEastIcon />
+//         <Typography>
+//           <Typography display={'flex'} fontSize={10}>
+//             HTTP
+//           </Typography>
+//           <Typography display={'flex'} fontSize={10}>
+//             aspecto.us.auth0...
+//           </Typography>
+//         </Typography>
+//       </Stack>)
+//   },
+//   position: { x: 50, y: 400 },
+//   style: { border: "1px solid rgb(206, 146, 216)" }
+// },
+// {
+//   id: '7',
+//   type: 'output',
+//   data: {
+//     label: (
+//       <Stack direction={'row'}>
+//         <SouthEastIcon />
+//         <Typography>
+//           <Typography display={'flex'} fontSize={10}>
+//             mongo-db
+//           </Typography>
+//           <Typography display={'flex'} fontSize={10}>
+//             stock-db
+//           </Typography>
+//         </Typography>
+//       </Stack>)
+//   },
+//   position: { x: 250, y: 400 },
+//   style: { border: "1px solid rgb(206, 146, 216)" }
+// },
 
 // ];
 
