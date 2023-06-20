@@ -231,8 +231,8 @@ const convertTreeToNodesEdges = (tree, parentNodeId = null, level = 0, position 
           <Stack direction={'row'}>
             <Storage />
             <Typography>
-              <Typography display={'flex'} fontSize={10}>
-                operationName
+              <Typography display={'flex'} fontSize={10} sx={{whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}>
+                {operationName}
               </Typography>
               {/* <Typography display={'flex'} fontSize={10}>
                 order-db
